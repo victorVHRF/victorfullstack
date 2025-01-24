@@ -3,7 +3,7 @@
 import { ProjectCard } from "@/components/project-card"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 interface Repo {
   id: number
@@ -20,19 +20,29 @@ interface ProjectListProps {
 
 export function ProjectList({ initialRepos }: ProjectListProps) {
   const [currentPage, setCurrentPage] = useState(1)
+  const [mounted, setMounted] = useState(false)
+
   const reposPerPage = 6
-  const totalPages = Math.ceil(initialRepos.length / reposPerPage)
+  const totalPages = Math.ceil(initialRepos?.length / reposPerPage)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
 
   const indexOfLastRepo = currentPage * reposPerPage
   const indexOfFirstRepo = indexOfLastRepo - reposPerPage
-  const currentRepos = initialRepos.slice(indexOfFirstRepo, indexOfLastRepo)
+  const currentRepos = initialRepos?.slice(indexOfFirstRepo, indexOfLastRepo)
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
 
   return (
     <div className="space-y-8">
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {currentRepos.map((repo) => (
+        {currentRepos?.map((repo) => (
           <ProjectCard key={repo.id} repo={repo} />
         ))}
       </div>
