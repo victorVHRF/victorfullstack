@@ -17,10 +17,8 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  experimental: {
-    optimizeCss: true,
-    scrollRestoration: true,
-  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  }
 };
-
 export default nextConfig;

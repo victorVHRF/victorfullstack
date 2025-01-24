@@ -6,7 +6,7 @@ import { Suspense } from "react"
 import ProjectsLoading from "./loading"
 
 export default function ProjectsPage() {
-  const { data: repos, isLoading, error } = useGithubRepos()
+  const { data: repos } = useGithubRepos()
 
   return (
     <div className="container py-12 md:py-24 space-y-8">
