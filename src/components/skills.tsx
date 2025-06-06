@@ -140,6 +140,10 @@ const skillCategories = [
         name: "Linux",
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
       },
+      {
+        name: "AWS",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
+      }
     ]
   }
 ]

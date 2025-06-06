@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: `${process.env.EMAIL_RESEND_EMAIL}`,
       to: `${process.env.EMAIL_USER}`,
-      subject: `Nova mensagem de contato de ${name}`,
+      subject: `Contato por portfolio por: ${name}`,
       html: `
         <h2>Nova mensagem de contato</h2>
         <p><strong>Nome:</strong> ${name}</p>
